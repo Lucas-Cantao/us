@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Us</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+body
+{
+  font-family: Karla;
+  color:white;
+  min-height: 100vh;
+  height: 100%;
+  background: linear-gradient(to top,#111111, #212121) no-repeat;
+  background-size: cover;
+}
+
+section
+
+{
+  font-size: clamp(8px, calc(2vh + 2vw), 22px);
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.loading {
+  display: flex;
+  margin-left: 4px;
+  margin-bottom: 3px;
+  gap: 5px;
+  justify-content: center;
+}
+
+.loading span {
+  width: 5px;
+  height: 5px;
+  background-color: #CBCCCC;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.loading span:nth-child(1) {
+  animation-delay: 0s;
+}
+.loading span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loading span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.iframe
+
+{
+  
+  display: flex;
+  justify-content: center;
+}
+
+main
+
+{
+  width: 70%;
+  margin: auto;
+  p
+  {
+    display: none;
+  }
+  p:first-child
+  {
+    display: block; 
+  }
+}
+
+#read-less-btn
+
+{
+  display: none;
+}
+
+.btns
+
+{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  overflow: hidden;
+  height: 3rem;
+  background-size: 300% 300%;
+  cursor: pointer;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+  transition: 0.5s;
+  animation: gradient_301 5s ease infinite;
+  border: double 4px transparent;
+  background-image: linear-gradient(#212121, #212121),
+    linear-gradient(
+      137.48deg,
+      #ffdb3b 10%,
+      #fe53bb 45%,
+      #8f51ea 67%,
+      #0044ff 87%
+    );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  position: relative;
+}
+
+#container-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Mantém sempre atrás do texto */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+}
+
+strong {
+  z-index: 2;
+  font-family: "Avalors Personal Use";
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #ffffff;
+  text-shadow: 0 0 4px white;
+}
+
+#glow {
+  position: absolute;
+  display: flex;
+  width: 12rem;
+}
+
+.circle {
+  width: 100%;
+  height: 30px;
+  filter: blur(2rem);
+  animation: pulse_3011 4s infinite;
+  z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+  background: rgba(254, 83, 186, 0.636);
+}
+
+.circle:nth-of-type(2) {
+  background: rgba(142, 81, 234, 0.704);
+}
+
+.btn:hover #container-stars {
+  background-color: #212121;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.btn:active {
+  border: double 4px #fe53bb;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: none;
+}
+
+.btn:active .circle {
+  background: #fe53bb;
+}
+
+#stars {
+  position: relative;
+  background: transparent;
+  width: 200rem;
+  height: 200rem;
+}
+
+#stars::after {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  left: -100rem;
+  width: 100%;
+  height: 100%;
+  animation: animStarRotate 90s linear infinite;
+}
+
+#stars::after {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+}
+
+#stars::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 170%;
+  height: 500%;
+  animation: animStar 60s linear infinite;
+}
+
+#stars::before {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-135rem);
+  }
+}
+
+@keyframes animStarRotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes gradient_301 {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse_3011 {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="iframe">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4JSROzfWqKccwZ68DX1aJe?utm_source=generator" height="102" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+</div>
+
+<audio controls autoplay>
+  <source src="ssvid.net--Luan-Santana-Tudo-que-você-quiser-DVD-O.mp3" type="audio/mpeg">
+</audio>
+
+<section>
+  <span>Don't give up on us</span>
+  <div class="loading">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+ </section>
+
+<main id="text-content">
+  <p>
+  Minha princesa, eu sei que errei. Sei que meu jeito de não conversar quando brigamos te machucou profundamente, desgastou nossa relação e te fez se afastar. Sei que você já não me ama como antes, mas eu sinto (e sei que você também) que ainda sente falta da gente. E isso me dá esperança, porque nosso amor ainda vive dentro de nós.
+</p>
+<p>
+O que mais dói é saber que menti sobre o motivo do meu comportamento. Eu poderia ter mudado desde o começo, poderia ter sido honesto, mas não fui. Eu entendo se isso te magoou ainda mais, se fez você se sentir magoada e distante. Mas princesa, hoje é diferente. Hoje eu posso mudar, eu quero mudar, e estou pronto para ser o homem que você merece. Quero conversar, resolver tudo, reconstruir nossa relação passo a passo, com todo carinho e dedicação que você merece.
+</p>
+<p>
+Você mesma disse que sabe que ninguém vai me amar e ser tão paciente com você como eu. E eu quero que saiba que toda essa paciência, todo esse amor, é real, é verdadeiro, e sempre será só seu. Nada no mundo me faria mais feliz do que continuar sendo o homem que te escuta, te apoia e te ama de verdade, todos os dias.
+</p>
+<p>
+Nós prometemos ficar juntos para sempre, casar, construir nossa família… e você sabe o quanto realizar tudo isso exatamente com você é o que mais importa pra mim. Minha princesa, eu quero viver cada um desses momentos ao seu lado. Eu quero te fazer feliz, te fazer sentir amada e mostrar que posso ser melhor.
+</p>
+<p>
+Eu te amo mais do que palavras podem dizer. E tudo o que eu quero é estar ao seu lado de verdade, te ouvir, te cuidar, e reconstruir nosso amor. Porque nós somos incríveis juntos, e eu sei que nosso amor merece uma segunda chance (merecemos a chance de sermos felizes como sempre sonhamos).
+</p>
+</main>
+<div class="btns">
+  <button type="button" class="btn" id="read-more-btn">
+  <strong>LER MAIS</strong>
+  <div id="container-stars">
+    <div id="stars"></div>
+  </div>
+
+  <div id="glow">
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+</button>
+  <button type="button" class="btn" id="read-less-btn">
+  <strong>LER MENOS</strong>
+  <div id="container-stars">
+    <div id="stars"></div>
+  </div>
+
+  <div id="glow">
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+</button>
+</div>
+</body>
+<script>
+      
+
+const paragraphs = document.querySelectorAll('#text-content p');
+  const readMoreBtn = document.getElementById('read-more-btn');
+  const readLessBtn = document.getElementById('read-less-btn');
+  let currentIndex = 0;
+
+  // Inicialmente, mostra apenas o primeiro parágrafo
+  paragraphs.forEach((p, index) => {
+    if(index !== 0) p.style.display = 'none';
+  });
+
+  readMoreBtn.addEventListener('click', () => {
+    if(currentIndex < paragraphs.length - 1){
+      currentIndex++;
+      paragraphs[currentIndex].style.display = 'block';
+    }
+    // Esconde o botão "Ler mais" quando chegar ao último
+    if(currentIndex === paragraphs.length - 1){
+      readMoreBtn.style.display = 'none';
+    }
+    // Sempre mostra o botão "Ler menos" se houver parágrafos adicionais abertos
+    if(currentIndex > 0){
+      readLessBtn.style.display = 'inline-block';
+    }
+  });
+
+  readLessBtn.addEventListener('click', () => {
+    if(currentIndex > 0){
+      paragraphs[currentIndex].style.display = 'none';
+      currentIndex--;
+    }
+    // Mostra o botão "Ler mais" novamente se não estivermos no último parágrafo
+    if(currentIndex < paragraphs.length - 1){
+      readMoreBtn.style.display = 'inline-block';
+    }
+    // Esconde o botão "Ler menos" se voltarmos ao primeiro parágrafo
+    if(currentIndex === 0){
+      readLessBtn.style.display = 'none';
+    }
+  });
+
+  // Inicialmente, esconde o botão "Ler menos"
+  readLessBtn.style.display = 'none';
+</script>
+</html>
